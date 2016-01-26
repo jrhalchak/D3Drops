@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .D3App
+    h1.D3App-header.js-applicationHeader= title
+      small.D3App-headerSmallText for patch 2.4
+    .D3App-appContainer
+      .D3App-appBorderTopLeft
+      .D3App-appBorderTopRight
+      .D3App-appBorderBottomLeft
+      .D3App-appBorderBottomRight
+      .D3TableContainer
+        .js-appContainer 
+
+block lateScripts
+  script(src='js/d3app.js')
+  script.
+    var items = !{JSON.stringify(items)};
+    ReactDOM.render(React.createElement(D3App, { items: items }), document.querySelector('.js-appContainer'));

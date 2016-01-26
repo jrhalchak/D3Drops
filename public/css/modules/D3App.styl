@@ -1,0 +1,242 @@
+.D3App
+  max-width: 1440px
+  margin: 25px auto
+  &-header
+    padding: 30px 0
+    font-size: 3em
+    text-align: center
+    font-family: serifFamily
+    font-weight: 400
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8)
+  &-headerSmallText
+    margin-left: 10px
+    font-size: 0.5em
+    font-style: italic
+    color: #ccc
+  &-appContainer
+    position: relative
+    background: rgba(25,27,27,0.9) url('/img/dark-texture.png') repeat
+    border: 1px solid #292c2d
+    box-shadow: inset 0 0 25px 0 rgba(0,0,0,0.3), 0 2px 15px 3px rgba(0,0,0,0.2)
+  &-appBorderTopLeft
+    position: absolute
+    left: -7px
+    top: -7px
+    width: 73px
+    height: 59px
+    z-index: 0
+    background: transparent url('/img/body-edges.png') left top no-repeat
+  &-appBorderTopRight
+    position: absolute
+    right: -7px
+    top: -7px
+    width: 73px
+    height: 59px
+    z-index: 0
+    background: transparent url('/img/body-edges.png') right top no-repeat
+  &-appBorderBottomLeft
+    position: absolute
+    left: -7px
+    bottom: -7px
+    width: 73px
+    height: 59px
+    z-index: 0
+    background: transparent url('/img/body-edges.png') left bottom no-repeat
+  &-appBorderBottomRight
+    position: absolute
+    right: -7px
+    bottom: -7px
+    width: 73px
+    height: 59px
+    z-index: 0
+    background: transparent url('/img/body-edges.png') right bottom no-repeat
+
+.D3TableContainer
+  position: relative
+  padding: 5px
+  &-sectionHeader
+    //width: calc(100% - 20px)
+    text-align: center
+    background: rgba(68,74,74,0.9) url('/img/light-texture.png') repeat
+    font-weight: 900
+    padding: 10px
+    margin: 5px auto 0 auto
+    font-size: 130%
+    z-index: 3
+    font-family: serifFamily
+    box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.4)
+    border: 1px solid lighten(rgb(68,74,74), 5%)
+  &-table
+    overflow-y: scroll
+    max-height: 500px
+    margin: 0 0 0 10px
+    .column, .columns
+      padding: 0 5px
+  &-tableRow
+    border-top: 1px solid rgb(68,74,74)
+    padding: 10px 0
+    &--expanded
+      background-color: #252017
+      background-image: url('/img/dark-texture.png'), url('/img/dark-corner-texture.png')
+      background-repeat: repeat, no-repeat
+      background-position: 0 0, 0 0
+      box-shadow: inset 0 0 20px 0 rgba(0,0,0,0.5), 0 0 30px 0 rgba(255,255,255,0.2)
+      border: 1px solid lighten(#252017, 10%)
+      margin: 10px auto
+      padding: 10px
+  &-tableHeaders
+    background: #120d0c url('/img/nav-bg.jpg') top left repeat-x
+    border-radius: 4px 4px 0 0
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
+    border: 1px solid darken(#120d0c, 3%)
+    margin: 0 9px
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7)
+    &.is-active
+      position: fixed
+      top: 0
+      width: 1440px
+      max-width: 100%
+  &-columnHeader
+    padding: 10px 15px
+    &:not(:last-child)
+      border-right: 2px solid rgba(0,0,0,0.2)
+    &:not(:first-child)
+      border-left: 1px solid rgba(255,255,255,0.1)
+
+.D3TableContainer-sectionHeader + .D3TableContainer-tableRow
+  border-top: none
+
+.D3ControlPanel
+  color: #171717
+  z-index: 3
+  background: #f0d191 url('/img/paper-texture.jpg') repeat-x
+  box-shadow: inset 0 0 50px 0 #6a4324
+  margin: 15px 10px 0 10px
+  padding: 15px
+  position: relative
+  &:after
+    background: transparent url('/img/paper-edge.png') right top no-repeat
+    content: ''
+    display: block
+    position: absolute
+    top: -4px
+    right: -5px
+    width: 350px
+    bottom: 0
+    z-index: -1
+  &-label
+    color: #660000
+  &-searchInput
+    width: 75%
+    border-radius: 6px 0 0 6px
+    height: 30px
+    line-height: 30px
+    margin: 25px 0
+    vertical-align: middle
+    background: rgba(255,255,255,0.6)
+    box-shadow: inset 0 2px 1px 0 rgba(0,0,0,0.4), 0 0 3px 0 rgba(0,0,0,0.1)
+    border: none
+  &-searchButton
+    cursor: pointer
+    background: rgba(0,0,0,0.6)
+    border: none
+    font-size: 16px
+    color: #fff
+    line-height: 30px
+    height: 30px
+    width: 25%
+    border-radius: 0 6px 6px 0
+    margin: 25px 0
+    vertical-align: middle
+    text-shadow: 0 1px 1px rgba(0,0,0,0.9)
+    &:hover
+      background: rgba(0,0,0,0.5)
+    &:active
+      background: rgba(0,0,0,0.7)
+  &-dropDown
+    width: 100%
+    border-radius: 6px
+    border: none
+    height: 30px
+    line-height: 30px
+    margin: 25px 0
+    vertical-align: middle
+    background: rgba(255,255,255,0.6)
+    box-shadow: inset 0 2px 1px 0 rgba(0,0,0,0.4), 0 0 3px 0 rgba(0,0,0,0.1)
+    font-weight: 900
+
+.D3CharacterList
+  padding: 0 15px
+  &-portrait
+    display: block
+    margin: 0 auto
+    background: transparent url('/img/portraits.png') 0 0 no-repeat
+    width: 80px
+    height: 80px
+    color: #fff
+    text-decoration: none
+    position: relative
+    cursor: pointer
+    &--Barb
+      background-position: 0 0
+      &.is-active
+        background-position: 0 -80px
+    &--DH
+      background-position: -80px 0
+      &.is-active
+        background-position: -80px -80px
+    &--Monk
+      background-position: -160px 0
+      &.is-active
+        background-position: -160px -80px
+    &--WD
+      background-position: -240px 0
+      &.is-active
+        background-position: -240px -80px
+    &--Wiz
+      background-position: -320px 0
+      &.is-active
+        background-position: -320px -80px
+    &--Cru
+      background-position: -400px 0
+      &.is-active
+        background-position: -400px -80px
+
+    &:hover
+      opacity: 0.7
+  &-portraitTitle
+    display: block
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: 15px
+    text-align: center
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6)
+
+.D3Paginator
+  overflow: hidden
+  list-style: none
+  padding-left: 0
+  text-align: center
+  margin: 20px 10px
+  border-top: 1px solid rgba(255,255,255,0.2)
+  border-bottom: 1px solid rgba(255,255,255,0.2)
+  box-shadow: 0 10px 25px -15px rgba(255,255,255,0.6), 0 -10px 25px -15px rgba(255,255,255,0.6)
+  &-pageNumber
+    display: inline-block
+    cursor:pointer
+    &:not(:first-child)
+      border-left: 1px solid rgba(255,255,255,0.2)
+  &-pageNumberLink
+    display: block
+    width: 40px
+    height: 40px
+    line-height: 40px
+    text-align: center
+    &.is-active
+      background: rgba(255,255,255,0.2)
+      font-weight: bold
+      color: #fff
+    &:not(.is-active):hover
+      background: rgba(255,255,255,0.1)
