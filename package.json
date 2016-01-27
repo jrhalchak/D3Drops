@@ -27,6 +27,7 @@
     "morgan": "^1.6.1",
     "nedb": "^1.7.1",
     "promise": "^7.1.1",
+    "promise-ratelimit": "0.0.2",
     "request-promise": "^2.0.0",
     "serve-favicon": "^2.3.0",
     "tabletop": "^1.4.2"
