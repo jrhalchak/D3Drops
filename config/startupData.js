@@ -5,14 +5,13 @@ var express = require('express'),
   Promise = require('bluebird'),
   throttle = require('promise-ratelimit')(100),
   Datastore = require('nedb'),
-  apiKeys = require('../config/keys'),
 
   db = new Datastore({ filename: './data/items.db', autoload: true }),
   app = express();
 
-var _sheetsKey = apiKeys._sheetsKey,
+var _sheetsKey = process.env.SHEETS_KEY,
   _apiBaseUrl = 'https://us.api.battle.net/d3/data/item/',
-  _apiKey = apiKeys._apiKey;
+  _apiKey = process.env.BLIZZ_API_KEY;
 
 module.exports = {
   loadData: function(callback) {

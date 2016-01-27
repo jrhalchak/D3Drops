@@ -4,6 +4,7 @@ var express = require('express'),
 
 var app = express();
 
+require('dotenv').config();
 require('./config/express')(app, config);
 
 startup.loadData(function() {
