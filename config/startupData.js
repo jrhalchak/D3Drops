@@ -42,6 +42,7 @@ function _getItemData(itemUrl) {
 
 function _getBlizzData(data, callback) {
   var requests = [], itemObjects = [];
+  console.log('starting Blizzard API');
 
   data.filter((x)=> !!x.itemName && !!x.bNetLink).forEach((i)=> {
       requests.push(
@@ -81,19 +82,25 @@ function _getBlizzData(data, callback) {
 
 function _getItems(callback) {
   console.log('in getitems');
+  callback();
+  /* temporary since sheets API is down
   db.findOne({ name: 'dataStore' }, function(err, result) {
     var currentDate = new Date();
     if(result && (currentDate - result.date < 86400000)) {
+      console.log('skipping API calls and invoking callback');
       callback();
     } else {
+      console.log('hitting the sheets API');
+
       tabletop.init({
         key: _sheetsKey,
         simpleSheet: false,
         callback: function(data) {
+          console.log('in tabletop callback');
           var spreadSheetData = data.RawData.elements;
           _getBlizzData(spreadSheetData, callback);
         }
       });
     }
-  })
+  })*/
 }
