@@ -6445,7 +6445,7 @@ var D3AppRowContentsExpanded = function (_React$Component) {
               React.createElement(
                 'div',
                 { className: 'Item-labelExplanation u-mb-10 u-c-tan u-cb u-borderTopWhite' },
-                'When the game rolls a legendary for a given slot, the percent chance of the item that can appear.'
+                'When the game rolls a legendary for a given slot, this is the percent chance that the item will appear.'
               )
             ),
             React.createElement(
@@ -6481,7 +6481,7 @@ var D3AppRowContentsExpanded = function (_React$Component) {
                     { className: 'u-textBold' },
                     '4 out of 5'
                   ),
-                  ' people will have the item after spending this amount of ',
+                  ' people will have this item after spending this amount of ',
                   React.createElement(
                     'span',
                     { className: 'u-c-kadala' },
@@ -6529,7 +6529,7 @@ var D3AppRowContentsExpanded = function (_React$Component) {
                     { className: 'u-textBold' },
                     '4 out of 5'
                   ),
-                  ' people will have the item after spending this amount of  ',
+                  ' people will have this item after spending this amount of ',
                   React.createElement(
                     'span',
                     { className: 'u-c-deaths' },
@@ -6733,7 +6733,11 @@ var D3ItemDescription = function (_React$Component2) {
         React.createElement(
           'a',
           { target: '_blank', href: item.bNetLink, className: 'Item-title', style: { color: item.displayColor } },
-          item.itemName,
+          React.createElement(
+            'span',
+            { className: 'Item-titleLabel' },
+            item.itemName
+          ),
           React.createElement(
             'span',
             { className: 'Item-titleIcon fa fa-external-link' },
@@ -6835,7 +6839,11 @@ var D3AppRowContents = function (_React$Component) {
             React.createElement(
               'a',
               { target: '_blank', href: item.bNetLink, className: 'Item-title', style: { color: item.displayColor } },
-              item.itemName,
+              React.createElement(
+                'span',
+                { className: 'Item-titleLabel' },
+                item.itemName
+              ),
               React.createElement(
                 'span',
                 { className: 'Item-titleIcon fa fa-external-link' },

@@ -68,7 +68,7 @@ class D3AppRowContentsExpanded extends React.Component {
               <div className='Item-label u-mb-5'>Drop Chance:</div>
               <DropChanceSixColumns item={item} activeCharacters={activeCharacters} />
               <div className='Item-labelExplanation u-mb-10 u-c-tan u-cb u-borderTopWhite'>
-                When the game rolls a legendary for a given slot, the percent chance of the item that can appear.
+                When the game rolls a legendary for a given slot, this is the percent chance that the item will appear.
               </div>
             </div>
             <div className='four columns u-ph-10'>
@@ -76,7 +76,7 @@ class D3AppRowContentsExpanded extends React.Component {
               <KadalaChanceSixColumns item={item} activeCharacters={activeCharacters} />
               <div className='Item-labelExplanation u-mb-10 u-cb u-borderTopWhite'>
                 <span className='u-c-tan'>On average, you can expect to see the item once per this amount of <span className='u-c-kadala'>Blood Shards</span> spent.
-                </span> / <span className='u-c-tan'>Only <span className='u-textBold'>4 out of 5</span> people will have the item after spending this amount of <span className='u-c-kadala'>Blood Shards</span>.</span>
+                </span> / <span className='u-c-tan'>Only <span className='u-textBold'>4 out of 5</span> people will have this item after spending this amount of <span className='u-c-kadala'>Blood Shards</span>.</span>
               </div>
             </div>
             <div className='four columns u-ph-10'>
@@ -85,7 +85,7 @@ class D3AppRowContentsExpanded extends React.Component {
               <div className='Item-labelExplanation u-mb-10 u-cb u-borderTopWhite'>Upgrade rare to legendary</div>
               <div className='Item-labelExplanation u-mb-10'>
                 <span className='u-c-tan'>On average, you can expect to see the item once per this amount of <span className='u-c-deaths'>Death's Breath</span> spent.
-                </span> / <span className='u-c-tan'>Only <span className='u-textBold'>4 out of 5</span> people will have the item after spending this amount of  <span className='u-c-deaths'>Death's Breath</span>.</span>
+                </span> / <span className='u-c-tan'>Only <span className='u-textBold'>4 out of 5</span> people will have this item after spending this amount of <span className='u-c-deaths'>Death's Breath</span>.</span>
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@ class D3ItemDescription extends React.Component {
 
     return <div className='Item-itemDescription'>
         <a target='_blank' href={item.bNetLink} className='Item-title' style={{color:item.displayColor}}>
-          {item.itemName}
+          <span className='Item-titleLabel'>{item.itemName}</span>
           <span className='Item-titleIcon fa fa-external-link'> </span>
         </a>
         <div className='u-hyphenate'>{item.typeName}</div>

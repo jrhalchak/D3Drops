@@ -13,7 +13,7 @@ class D3AppRowContents extends React.Component {
           </div>
           <div className='Item-itemDescription'>
             <a target='_blank' href={item.bNetLink} className='Item-title' style={{color:item.displayColor}}>
-              {item.itemName}
+              <span className='Item-titleLabel'>{item.itemName}</span>
               <span className='Item-titleIcon fa fa-external-link'> </span>
             </a>
             <div className='u-hyphenate'>{item.typeName}</div>

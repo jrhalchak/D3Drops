@@ -34,13 +34,21 @@
   &-title
     font-family: serifFamily
     font-weight: 900
+  &-titleLabel
+    display: inline-block
+    max-width: 90%
+    height: 1em
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
   &-titleIcon
     font-size: 80%
     margin-left: 5px
     color: #eee
   &-itemDescription
     margin-top: 10px
-    float: left
+    margin-left: 65px
+    margin-right: 5px
   &-label
     font-family: serifFamily
     font-style: italic
@@ -70,15 +78,19 @@
   &-title
     font-family: serifFamily
     font-weight: 900
+  &-titleLabel
+    display: inline
+    max-width: 100%
+    height: auto
+    overflow: visible
+    white-space: normal
+    text-overflow: clip
   &-titleIcon
     font-size: 80%
     margin-left: 5px
     color: #eee
   &-itemDescription
-    margin-top: 10px
-    float: none
     margin-left: 85px
-    margin-right: 5px
   &-label
     clear: both
   &-value

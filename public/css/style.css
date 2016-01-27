@@ -588,6 +588,14 @@ td {
   font-family: 'Lora', Georgia, serif;
   font-weight: 900;
 }
+.Item-titleLabel {
+  display: inline-block;
+  max-width: 90%;
+  height: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .Item-titleIcon {
   font-size: 80%;
   margin-left: 5px;
@@ -595,7 +603,8 @@ td {
 }
 .Item-itemDescription {
   margin-top: 10px;
-  float: left;
+  margin-left: 65px;
+  margin-right: 5px;
 }
 .Item-label {
   font-family: 'Lora', Georgia, serif;
@@ -630,16 +639,21 @@ td {
   font-family: 'Lora', Georgia, serif;
   font-weight: 900;
 }
+.D3TableContainer-tableRow--expanded .Item-titleLabel {
+  display: inline;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+}
 .D3TableContainer-tableRow--expanded .Item-titleIcon {
   font-size: 80%;
   margin-left: 5px;
   color: #eee;
 }
 .D3TableContainer-tableRow--expanded .Item-itemDescription {
-  margin-top: 10px;
-  float: none;
   margin-left: 85px;
-  margin-right: 5px;
 }
 .D3TableContainer-tableRow--expanded .Item-label {
   clear: both;
