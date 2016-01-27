@@ -4,15 +4,17 @@ class D3Paginator extends React.Component {
   }
   render() {
     var i = 1,
-    totalPages = this.props.totalPages,
-    currentPage = this.props.currentPage,
+    totalPages = +(this.props.totalPages),
+    currentPage = +(this.props.currentPage),
     pageNumbers = [],
-    nextPage = currentPage == totalPages ? null : <li className='D3Paginator-pageNumber' key={D3AppController.generateUUID()}>
-      <a className='D3Paginator-pageNumberLink' onClick={this.handleClick} data-page={+(currentPage) + 1}><span className='fa fa-chevron-right'></span></a>
-    </li>,
-    prevPage = currentPage == 1 ? null : <li className='D3Paginator-pageNumber' key={D3AppController.generateUUID()}>
-      <a className='D3Paginator-pageNumberLink' onClick={this.handleClick} data-page={+(currentPage) - 1}><span className='fa fa-chevron-left'></span></a>
-    </li>;
+    // TODO: figure out the brokenness
+    //nextPage = currentPage == totalPages ? null : <li className='D3Paginator-pageNumber' key={D3AppController.generateUUID()}>
+    //  <a className='D3Paginator-pageNumberLink' onClick={this.handleClick} data-page='next'><span className='fa fa-chevron-right'></span></a>
+    //</li>,
+    //prevPage = currentPage == 1 ? null : <li className='D3Paginator-pageNumber' key={D3AppController.generateUUID()}>
+    //  <a className='D3Paginator-pageNumberLink' onClick={this.handleClick} data-page='prev'><span className='fa fa-chevron-left'></span></a>
+    //</li>;
+    nextPage = null, prevPage = null;
 
     while(i <= totalPages) {
       pageNumbers.push(<li className='D3Paginator-pageNumber' key={D3AppController.generateUUID()}>

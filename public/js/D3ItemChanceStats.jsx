@@ -6,7 +6,7 @@ class DropChanceSixColumns extends React.Component {
         var dropChance = +(self.props.item[x + 'DropChance']);
         if(dropChance) {
           return <div className='six columns' key={D3AppController.generateUUID()}>
-            <div className='u-mv-5'><span className='u-textBold'>{x}</span> - {dropChance}%</div>
+            <div className='u-mb-10'><span className='u-textBold'>{x}</span> - {dropChance}%</div>
           </div>
         }
       })}
@@ -22,7 +22,7 @@ class KadalaChanceSixColumns extends React.Component {
         var kadalaChance = +(self.props.item[x + 'KadalaChance']);
         if(kadalaChance) {
         return <div className='six columns' key={D3AppController.generateUUID()}>
-            <div className='u-mv-5'>
+            <div className='u-mb-10'>
               <div>
                 <span className='u-textBold u-c-kadala'>{x}</span> - {kadalaChance}%
               </div>
@@ -44,7 +44,7 @@ class BreathSixColumns extends React.Component {
 
         if(+(breathCost.replace(/,/g, ''))) {
           return <div className='six columns' key={D3AppController.generateUUID()}>
-            <div className='u-mv-5'>
+            <div className='u-mb-10'>
               <div>
                 <span className='u-textBold u-c-deaths'>{x}</span>
               </div>

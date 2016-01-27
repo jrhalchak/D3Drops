@@ -70,7 +70,7 @@ class D3App extends React.Component {
       }
 
       totalPages = Math.floor(filteredItems.length / perPage) + (filteredItems.length % perPage ? 1 : 0);
-      if(selectedType == 'all') {
+      if(selectedType == 'all' && !self.state.currentSearch) {
         paginator = <D3Paginator currentPage={currentPage} totalPages={totalPages}  />;
         items = filteredItems.slice(currentItemIndex, currentItemIndex + perPage);
       } else {

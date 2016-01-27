@@ -2,7 +2,8 @@ class D3AppRowContents extends React.Component {
   render() {
     var item = this.props.item,
       activeCharacters = this.props.activeCharacters,
-      determineCharacters = this.props.determineCharacters;
+      determineCharacters = this.props.determineCharacters,
+      toggleExpand = this.props.handlers.toggleExpand;
 
     return (<div className='row D3TableContainer-tableRow'>
         <div className='three columns u-cf'>
@@ -16,7 +17,7 @@ class D3AppRowContents extends React.Component {
               <span className='Item-titleIcon fa fa-external-link'> </span>
             </a>
             <div className='u-hyphenate'>{item.typeName}</div>
-            <a className='Item-expandLink u-cursorPointer' onClick={this.props.handlers.toggleExpand} data-id={item.id}>Expand <span className='Item-expandLinkIcon fa fa-chevron-down'></span></a>
+            <a className='Item-expandLink u-cursorPointer' onClick={toggleExpand} data-id={item.id}>Expand <span className='Item-expandLinkIcon fa fa-chevron-down'></span></a>
           </div>
         </div>
         <div className='two columns'>

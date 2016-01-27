@@ -6103,7 +6103,7 @@ var DropChanceSixColumns = function (_React$Component) {
               { className: 'six columns', key: D3AppController.generateUUID() },
               React.createElement(
                 'div',
-                { className: 'u-mv-5' },
+                { className: 'u-mb-10' },
                 React.createElement(
                   'span',
                   { className: 'u-textBold' },
@@ -6147,7 +6147,7 @@ var KadalaChanceSixColumns = function (_React$Component2) {
               { className: 'six columns', key: D3AppController.generateUUID() },
               React.createElement(
                 'div',
-                { className: 'u-mv-5' },
+                { className: 'u-mb-10' },
                 React.createElement(
                   'div',
                   null,
@@ -6203,7 +6203,7 @@ var BreathSixColumns = function (_React$Component3) {
               { className: 'six columns', key: D3AppController.generateUUID() },
               React.createElement(
                 'div',
-                { className: 'u-mv-5' },
+                { className: 'u-mb-10' },
                 React.createElement(
                   'div',
                   null,
@@ -6254,174 +6254,178 @@ var D3AppRowContentsExpanded = function (_React$Component) {
     value: function render() {
       var item = this.props.item,
           activeCharacters = this.props.activeCharacters,
-          determineCharacters = this.props.determineCharacters.split(','),
-          dpsDefense = item.dps ? React.createElement(
-        'div',
-        { className: 'Item-DPSDefense' },
-        parseFloat(item.dps.min).toFixed(1),
-        ' - ',
-        parseFloat(item.dps.max).toFixed(1),
-        React.createElement(
-          'div',
-          { className: 'Item-DPSDefenseLabel u-c-grey' },
-          'Damage Per Second'
-        )
-      ) : item.armor ? React.createElement(
-        'div',
-        { className: 'Item-DPSDefense' },
-        parseFloat(item.armor.min).toFixed(1),
-        ' - ',
-        parseFloat(item.armor.max).toFixed(1),
-        React.createElement(
-          'div',
-          { className: 'Item-DPSDefenseLabel u-c-grey' },
-          'Armor'
-        )
-      ) : null,
-          attacksPerSecond = item.attacksPerSecond ? React.createElement(
-        'div',
-        { className: 'Item-smallItemText' },
-        ((parseInt(item.attacksPerSecond.min) + parseInt(item.attacksPerSecond.max)) / 2).toFixed(2),
-        React.createElement(
-          'span',
-          { className: 'u-c-grey' },
-          'Attacks Per Second'
-        )
-      ) : null;
+          determineCharacters = this.props.determineCharacters,
+          toggleExpand = this.props.handlers.toggleExpand;
 
       return React.createElement(
         'div',
         { className: 'row D3TableContainer-tableRow--expanded' },
         React.createElement(
           'div',
-          { className: 'three columns u-cf' },
+          { className: 'six columns' },
           React.createElement(
             'div',
-            { className: 'Item-imageContainer' },
-            React.createElement('div', { className: 'Item-imageBackground Item-imageBackground--' + item.displayColor }),
-            React.createElement('div', { className: 'Item-image', style: { backgroundImage: 'url(http://media.blizzard.com/d3/icons/items/large/' + item.icon + '.png)' } })
-          ),
-          React.createElement(
-            'div',
-            { className: 'Item-itemDescription' },
+            { className: 'row' },
             React.createElement(
-              'a',
-              { target: '_blank', href: item.bNetLink, className: 'Item-title', style: { color: item.displayColor } },
-              item.itemName,
+              'div',
+              { className: 'seven columns u-cf' },
               React.createElement(
-                'span',
-                { className: 'Item-titleIcon fa fa-external-link' },
-                ' '
+                'div',
+                { className: 'Item-imageContainer' },
+                React.createElement('div', { className: 'Item-imageBackground Item-imageBackground--' + item.displayColor }),
+                React.createElement('div', { className: 'Item-image', style: { backgroundImage: 'url(http://media.blizzard.com/d3/icons/items/large/' + item.icon + '.png)' } })
+              ),
+              React.createElement(D3ItemDescription, { item: item, toggleExpand: toggleExpand })
+            ),
+            React.createElement(
+              'div',
+              { className: 'five columns' },
+              React.createElement(
+                'div',
+                { className: 'u-mb-10' },
+                React.createElement(
+                  'span',
+                  { className: 'Item-label' },
+                  'Simple:'
+                ),
+                React.createElement(
+                  'span',
+                  { className: 'Item-value u-hyphenate' },
+                  item.typeSimple
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-mb-10' },
+                React.createElement(
+                  'span',
+                  { className: 'Item-label u-c-kadala' },
+                  'Kadala:'
+                ),
+                React.createElement(
+                  'span',
+                  { className: 'Item-value u-hyphenate' },
+                  item.typeKadala
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-mb-10' },
+                React.createElement(
+                  'span',
+                  { className: 'Item-label' },
+                  'Torment Only:'
+                ),
+                React.createElement(
+                  'span',
+                  { className: 'Item-value u-hyphenate' },
+                  item['Torment Only'] == "TRUE" ? 'Yes' : 'No'
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-mb-10' },
+                React.createElement(
+                  'span',
+                  { className: 'Item-label' },
+                  'Hardcore Only:'
+                ),
+                React.createElement(
+                  'span',
+                  { className: 'Item-value u-hyphenate' },
+                  item.isHardcoreOnly == 'TRUE' ? 'Yes' : 'No'
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-mb-10' },
+                React.createElement(
+                  'span',
+                  { className: 'Item-label' },
+                  'Seasonal-Drop Only:'
+                ),
+                React.createElement(
+                  'span',
+                  { className: 'Item-value u-hyphenate' },
+                  item.isSeasonRequiredToDrop ? 'Yes: ' + item.Season : 'No'
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-mb-10' },
+                React.createElement(
+                  'span',
+                  { className: 'Item-label' },
+                  'Item Level:'
+                ),
+                React.createElement(
+                  'span',
+                  { className: 'Item-value u-hyphenate' },
+                  item.itemLevel
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-borderTopWhite u-mb-10' },
+                React.createElement(
+                  'div',
+                  { className: 'Item-label' },
+                  'Suitable For:'
+                ),
+                React.createElement(
+                  'div',
+                  { className: 'u-mt-10 u-hyphenate' },
+                  determineCharacters
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-borderTopWhite u-mb-10 u-textLarge' },
+                React.createElement(
+                  'div',
+                  null,
+                  React.createElement(
+                    'span',
+                    { className: 'u-c-grey' },
+                    'Required Level:'
+                  ),
+                  ' ',
+                  React.createElement(
+                    'span',
+                    { className: 'Item-requiredLevel' },
+                    item.requiredLevel
+                  )
+                )
+              ),
+              item.accountBound == 'true' ? React.createElement(
+                'div',
+                { className: 'u-borderTopWhite u-mb-10 u-textLarge' },
+                React.createElement(
+                  'div',
+                  { className: 'u-c-tan' },
+                  'Account Bound'
+                )
+              ) : null,
+              React.createElement(
+                'div',
+                { className: 'u-borderTopWhite u-mb-10 u-textLarge' },
+                React.createElement(
+                  'div',
+                  { className: 'u-c-tan' },
+                  'Unique Equipped'
+                )
+              ),
+              React.createElement(
+                'div',
+                { className: 'u-borderTopWhite u-mb-10' },
+                React.createElement(
+                  'div',
+                  { className: 'u-c-tan' },
+                  item.flavorText
+                )
               )
-            ),
-            React.createElement(
-              'div',
-              { className: 'u-hyphenate' },
-              item.typeName
-            ),
-            dpsDefense,
-            React.createElement(
-              'div',
-              { className: 'u-c-tan' },
-              item.flavorText
-            ),
-            React.createElement(
-              'a',
-              { className: 'Item-expandLink u-cursorPointer', onClick: this.props.handlers.toggleExpand, 'data-id': item.id },
-              'Collapse ',
-              React.createElement('span', { className: 'Item-expandLinkIcon fa fa-chevron-up' })
             )
           )
-        ),
-        React.createElement(
-          'div',
-          { className: 'two columns' },
-          React.createElement(
-            'div',
-            null,
-            React.createElement(
-              'div',
-              { className: 'Item-label u-mb-5' },
-              'Simple:'
-            ),
-            React.createElement(
-              'div',
-              { className: 'Item-value u-mb-10 u-hyphenate' },
-              item.typeSimple
-            )
-          ),
-          React.createElement(
-            'div',
-            null,
-            React.createElement(
-              'div',
-              { className: 'Item-label u-c-kadala u-mb-5' },
-              'Kadala:'
-            ),
-            React.createElement(
-              'div',
-              { className: 'Item-value u-mb-10 u-hyphenate' },
-              item.typeKadala
-            )
-          ),
-          React.createElement(
-            'div',
-            null,
-            React.createElement(
-              'div',
-              { className: 'Item-label u-mb-5' },
-              'Torment Only:'
-            ),
-            React.createElement(
-              'div',
-              { className: 'Item-value u-mb-10 u-hyphenate' },
-              item['Torment Only'] == "TRUE" ? 'Yes' : 'No'
-            )
-          ),
-          React.createElement(
-            'div',
-            null,
-            React.createElement(
-              'div',
-              { className: 'Item-label u-mb-5' },
-              'Hardcore Only:'
-            ),
-            React.createElement(
-              'div',
-              { className: 'Item-value u-mb-10 u-hyphenate' },
-              item.isHardcoreOnly ? 'Yes' : 'No'
-            )
-          ),
-          React.createElement(
-            'div',
-            null,
-            React.createElement(
-              'div',
-              { className: 'Item-label u-mb-5' },
-              'Seasonal-Drop Only:'
-            ),
-            React.createElement(
-              'div',
-              { className: 'Item-value u-mb-10 u-hyphenate' },
-              item.isSeasonRequiredToDrop ? 'Yes: ' + item.Season : 'No'
-            )
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'one columns' },
-          React.createElement(
-            'div',
-            { className: 'Item-label u-mb-5' },
-            'Suitable For:'
-          ),
-          determineCharacters.map(function (c) {
-            return React.createElement(
-              'div',
-              null,
-              c
-            );
-          })
         ),
         React.createElement(
           'div',
@@ -6493,7 +6497,7 @@ var D3AppRowContentsExpanded = function (_React$Component) {
               React.createElement(
                 'div',
                 { className: 'Item-label u-mb-5' },
-                'Kadala Chance & Spend:'
+                'Death\'s Breath Spend:'
               ),
               React.createElement(BreathSixColumns, { item: item, activeCharacters: activeCharacters }),
               React.createElement(
@@ -6543,6 +6547,249 @@ var D3AppRowContentsExpanded = function (_React$Component) {
 
   return D3AppRowContentsExpanded;
 }(React.Component);
+
+// TODO: break this entire component into a million pieces!
+
+var D3ItemDescription = function (_React$Component2) {
+  _inherits(D3ItemDescription, _React$Component2);
+
+  function D3ItemDescription() {
+    _classCallCheck(this, D3ItemDescription);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(D3ItemDescription).apply(this, arguments));
+  }
+
+  _createClass(D3ItemDescription, [{
+    key: 'returnAttribute',
+    value: function returnAttribute(x) {
+      return React.createElement(
+        'div',
+        { className: 'Item-itemAttribute u-mb-10' + (x.color == 'orange' ? ' u-c-legendary' : x.color == 'blue' ? ' u-c-blue' : ''), key: D3AppController.generateUUID() },
+        x.text
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var self = this,
+          item = this.props.item,
+          dpsMin = item.dps ? parseFloat(item.dps.min).toFixed(1) : null,
+          dpsMax = item.dps ? parseFloat(item.dps.max).toFixed(1) : null,
+          dpsText = dpsMin && dpsMax ? dpsMin == dpsMax ? dpsMax : dpsMin + ' - ' + dpsMax : null,
+          armorMin = item.armor ? parseFloat(item.armor.min).toFixed(1) : null,
+          armorMax = item.armor ? parseFloat(item.armor.max).toFixed(1) : null,
+          armorText = armorMin && armorMax ? armorMin == armorMax ? armorMax : armorMin + ' - ' + armorMax : null,
+          dpsDefense = item.dps ? React.createElement(
+        'div',
+        { className: 'Item-DPSDefense' },
+        dpsText,
+        React.createElement(
+          'div',
+          { className: 'Item-DPSDefenseLabel u-c-grey' },
+          'Damage Per Second'
+        )
+      ) : item.armor ? React.createElement(
+        'div',
+        { className: 'Item-DPSDefense' },
+        armorText,
+        React.createElement(
+          'div',
+          { className: 'Item-DPSDefenseLabel u-c-grey' },
+          'Armor'
+        )
+      ) : null,
+          attacksPerSecond = item.attacksPerSecond ? React.createElement(
+        'div',
+        { className: 'Item-smallItemText u-mt-5' },
+        ((parseInt(item.attacksPerSecond.min) + parseInt(item.attacksPerSecond.max)) / 2).toFixed(2),
+        ' ',
+        React.createElement(
+          'span',
+          { className: 'u-c-grey' },
+          'Attacks Per Second'
+        )
+      ) : null,
+          primaryStats = item.attributes.primary.length ? item.attributes.primary.map(self.returnAttribute) : null,
+          secondaryStats = item.attributes.secondary.length ? item.attributes.secondary.map(self.returnAttribute) : null,
+          passiveStats = item.attributes.passive.length ? item.attributes.passive.map(self.returnAttribute) : null,
+          randomAffixes = item.randomAffixes.length ? item.randomAffixes.map(function (x) {
+        var affixes = x.oneOf.map(function (y, i, a) {
+          var att = y.attributes,
+              primary = att.primary.length ? att.primary.map(self.returnAttribute) : null,
+              secondary = att.secondary.length ? att.secondary.map(self.returnAttribute) : null,
+              passive = att.passive.length ? att.passive.map(self.returnAttribute) : null;
+
+          return React.createElement(
+            'div',
+            null,
+            primary,
+            secondary,
+            passive
+          );
+        });
+
+        return React.createElement(
+          'div',
+          { className: 'u-mb10' },
+          React.createElement(
+            'div',
+            { className: 'u-c-blue u-mb-10' },
+            'One of ',
+            React.createElement(
+              'span',
+              { className: 'u-c-value' },
+              affixes.length
+            ),
+            ' Magic Properties (varies)'
+          ),
+          React.createElement(
+            'div',
+            { className: 'u-ml-10' },
+            affixes
+          )
+        );
+      }) : null,
+          bonusProperties = item.bonusAffixesMax != '0' && item.bonusAffixesMin == item.bonusAffixesMax ? React.createElement(
+        'div',
+        { className: 'u-mb-5 u-mt-10 u-c-blue' },
+        '+',
+        React.createElement(
+          'span',
+          { className: 'u-c-value' },
+          item.bonusAffixesMax
+        ),
+        ' Random Magic Properties'
+      ) : item.bonusAffixesMax != '0' ? React.createElement(
+        'div',
+        { className: 'u-mb-5 u-mt-10 u-c-blue' },
+        '+',
+        React.createElement(
+          'span',
+          { className: 'u-c-value' },
+          item.bonusAffixesMin
+        ),
+        '-',
+        React.createElement(
+          'span',
+          { className: 'u-c-value' },
+          item.bonusAffixesMax
+        ),
+        ' Random Magic Properties'
+      ) : null,
+          isSet = item.set || null,
+          setName = isSet ? item.set.name : null,
+          setItems = isSet ? item.set.items.map(function (x) {
+        return x.name;
+      }) : null,
+          setBonuses = isSet && item.set.ranks && item.set.ranks.length ? item.set.ranks.map(function (x) {
+        var att = x.attributes,
+            primary = att.primary.length ? att.primary.map(self.returnAttribute) : null,
+            secondary = att.secondary.length ? att.secondary.map(self.returnAttribute) : null,
+            passive = att.passive.length ? att.passive.map(self.returnAttribute) : null;
+
+        return React.createElement(
+          'div',
+          { className: 'u-c-grey' },
+          React.createElement(
+            'div',
+            null,
+            '(',
+            x.required,
+            ') Set:'
+          ),
+          React.createElement(
+            'div',
+            { className: 'u-ml-10' },
+            primary,
+            secondary,
+            passive
+          )
+        );
+      }) : null,
+          hasSockets = item.attributesRaw.Sockets && item.attributesRaw.Sockets.max && item.attributesRaw.Sockets.max != '0',
+          sockets = [];
+
+      if (hasSockets) {
+        for (var i = 1; i <= parseInt(item.attributesRaw.Sockets.max); i++) {
+          sockets.push(React.createElement(
+            'div',
+            { className: 'u-mb-10 u-mt-10' },
+            React.createElement('span', { className: 'fa fa-circle-o u-c-grey' }),
+            ' ',
+            React.createElement(
+              'span',
+              { className: 'u-c-blue' },
+              'Empty Socket'
+            )
+          ));
+        }
+      } else {
+        sockets = null;
+      }
+
+      return React.createElement(
+        'div',
+        { className: 'Item-itemDescription' },
+        React.createElement(
+          'a',
+          { target: '_blank', href: item.bNetLink, className: 'Item-title', style: { color: item.displayColor } },
+          item.itemName,
+          React.createElement(
+            'span',
+            { className: 'Item-titleIcon fa fa-external-link' },
+            ' '
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'u-hyphenate' },
+          item.typeName
+        ),
+        dpsDefense,
+        attacksPerSecond,
+        React.createElement(
+          'div',
+          { className: 'u-mv-10' },
+          primaryStats ? React.createElement(
+            'div',
+            { className: 'u-mb-5 u-mt-10' },
+            'Primary'
+          ) : null,
+          primaryStats,
+          secondaryStats ? React.createElement(
+            'div',
+            { className: 'u-mb-5 u-mt-10' },
+            'Secondary'
+          ) : null,
+          secondaryStats,
+          passiveStats ? React.createElement(
+            'div',
+            { className: 'u-mb-5 u-mt-10' },
+            'Passive'
+          ) : null,
+          passiveStats
+        ),
+        randomAffixes,
+        bonusProperties,
+        sockets,
+        isSet ? React.createElement(
+          'div',
+          { className: 'u-mb-5 u-mt-10 u-c-set u-cursorHelp', title: setItems.join(', ') },
+          setName
+        ) : null,
+        setBonuses,
+        React.createElement(
+          'a',
+          { className: 'Item-expandLink u-cursorPointer u-displayInlineBlock u-mt-10', onClick: this.props.toggleExpand, 'data-id': item.id },
+          'Collapse ',
+          React.createElement('span', { className: 'Item-expandLinkIcon fa fa-chevron-up' })
+        )
+      );
+    }
+  }]);
+
+  return D3ItemDescription;
+}(React.Component);
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -6567,7 +6814,8 @@ var D3AppRowContents = function (_React$Component) {
     value: function render() {
       var item = this.props.item,
           activeCharacters = this.props.activeCharacters,
-          determineCharacters = this.props.determineCharacters;
+          determineCharacters = this.props.determineCharacters,
+          toggleExpand = this.props.handlers.toggleExpand;
 
       return React.createElement(
         'div',
@@ -6601,7 +6849,7 @@ var D3AppRowContents = function (_React$Component) {
             ),
             React.createElement(
               'a',
-              { className: 'Item-expandLink u-cursorPointer', onClick: this.props.handlers.toggleExpand, 'data-id': item.id },
+              { className: 'Item-expandLink u-cursorPointer', onClick: toggleExpand, 'data-id': item.id },
               'Expand ',
               React.createElement('span', { className: 'Item-expandLinkIcon fa fa-chevron-down' })
             )
@@ -6796,27 +7044,19 @@ var D3Paginator = function (_React$Component) {
     key: 'render',
     value: function render() {
       var i = 1,
-          totalPages = this.props.totalPages,
-          currentPage = this.props.currentPage,
+          totalPages = +this.props.totalPages,
+          currentPage = +this.props.currentPage,
           pageNumbers = [],
-          nextPage = currentPage == totalPages ? null : React.createElement(
-        'li',
-        { className: 'D3Paginator-pageNumber', key: D3AppController.generateUUID() },
-        React.createElement(
-          'a',
-          { className: 'D3Paginator-pageNumberLink', onClick: this.handleClick, 'data-page': +currentPage + 1 },
-          React.createElement('span', { className: 'fa fa-chevron-right' })
-        )
-      ),
-          prevPage = currentPage == 1 ? null : React.createElement(
-        'li',
-        { className: 'D3Paginator-pageNumber', key: D3AppController.generateUUID() },
-        React.createElement(
-          'a',
-          { className: 'D3Paginator-pageNumberLink', onClick: this.handleClick, 'data-page': +currentPage - 1 },
-          React.createElement('span', { className: 'fa fa-chevron-left' })
-        )
-      );
+
+      // TODO: figure out the brokenness
+      //nextPage = currentPage == totalPages ? null : <li className='D3Paginator-pageNumber' key={D3AppController.generateUUID()}>
+      //  <a className='D3Paginator-pageNumberLink' onClick={this.handleClick} data-page='next'><span className='fa fa-chevron-right'></span></a>
+      //</li>,
+      //prevPage = currentPage == 1 ? null : <li className='D3Paginator-pageNumber' key={D3AppController.generateUUID()}>
+      //  <a className='D3Paginator-pageNumberLink' onClick={this.handleClick} data-page='prev'><span className='fa fa-chevron-left'></span></a>
+      //</li>;
+      nextPage = null,
+          prevPage = null;
 
       while (i <= totalPages) {
         pageNumbers.push(React.createElement(
@@ -7113,7 +7353,7 @@ var D3App = function (_React$Component) {
       }
 
       totalPages = Math.floor(filteredItems.length / perPage) + (filteredItems.length % perPage ? 1 : 0);
-      if (selectedType == 'all') {
+      if (selectedType == 'all' && !self.state.currentSearch) {
         paginator = React.createElement(D3Paginator, { currentPage: currentPage, totalPages: totalPages });
         items = filteredItems.slice(currentItemIndex, currentItemIndex + perPage);
       } else {
