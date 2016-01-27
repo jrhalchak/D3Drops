@@ -39,6 +39,7 @@ class D3App extends React.Component {
       activeCharacters = self.state.activeClass,
       allItems = self.props.items,
       filteredItems = [],
+      tempItems = [],
       items = [],
       totalPages,
       paginator = null,
@@ -46,7 +47,7 @@ class D3App extends React.Component {
       currentPage = +(self.state.currentPage);
 
       if(selectedType != 'all') {
-        filteredItems = allItems.filter((x) => {
+        tempItems = allItems.filter((x) => {
           var isSelected = x.itemType == selectedType,
             matchesChars = activeCharacters.some((y)=> {
               return x['is' + y + 'Loot'] == 1;
@@ -55,7 +56,7 @@ class D3App extends React.Component {
           return isSelected && activeCharacters;
         });
       } else {
-        filteredItems = allItems.filter((x) => {
+        tempItems = allItems.filter((x) => {
           return activeCharacters.some((y)=> {
             return x['is' + y + 'Loot'] == 1;
           });
@@ -63,10 +64,12 @@ class D3App extends React.Component {
       }
 
       if(self.state.currentSearch) {
-        filteredItems = allItems.filter((x)=> {
+        filteredItems = tempItems.filter((x)=> {
           var regex = new RegExp(self.state.currentSearch, 'ig');
           return x.itemName.match(regex) || x.typeName.match(regex);
         })
+      } else {
+        filteredItems = tempItems;
       }
 
       totalPages = Math.floor(filteredItems.length / perPage) + (filteredItems.length % perPage ? 1 : 0);

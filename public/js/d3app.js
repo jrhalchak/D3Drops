@@ -7330,6 +7330,7 @@ var D3App = function (_React$Component) {
           activeCharacters = self.state.activeClass,
           allItems = self.props.items,
           filteredItems = [],
+          tempItems = [],
           items = [],
           totalPages,
           paginator = null,
@@ -7337,7 +7338,7 @@ var D3App = function (_React$Component) {
           currentPage = +self.state.currentPage;
 
       if (selectedType != 'all') {
-        filteredItems = allItems.filter(function (x) {
+        tempItems = allItems.filter(function (x) {
           var isSelected = x.itemType == selectedType,
               matchesChars = activeCharacters.some(function (y) {
             return x['is' + y + 'Loot'] == 1;
@@ -7346,7 +7347,7 @@ var D3App = function (_React$Component) {
           return isSelected && activeCharacters;
         });
       } else {
-        filteredItems = allItems.filter(function (x) {
+        tempItems = allItems.filter(function (x) {
           return activeCharacters.some(function (y) {
             return x['is' + y + 'Loot'] == 1;
           });
@@ -7354,10 +7355,12 @@ var D3App = function (_React$Component) {
       }
 
       if (self.state.currentSearch) {
-        filteredItems = allItems.filter(function (x) {
+        filteredItems = tempItems.filter(function (x) {
           var regex = new RegExp(self.state.currentSearch, 'ig');
           return x.itemName.match(regex) || x.typeName.match(regex);
         });
+      } else {
+        filteredItems = tempItems;
       }
 
       totalPages = Math.floor(filteredItems.length / perPage) + (filteredItems.length % perPage ? 1 : 0);
