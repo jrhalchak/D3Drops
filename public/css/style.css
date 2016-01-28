@@ -9,6 +9,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  cursor: url("/img/cursor_shadow.cur"), default;
 }
 body {
   background: #171717 url("/img/background.jpg") 50% 0 no-repeat fixed;
@@ -591,7 +592,7 @@ td {
 .Item-titleLabel {
   display: inline-block;
   max-width: 90%;
-  height: 1em;
+  height: 1.3em;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -600,6 +601,8 @@ td {
   font-size: 80%;
   margin-left: 5px;
   color: #eee;
+  vertical-align: top;
+  margin-top: 5px;
 }
 .Item-itemDescription {
   margin-top: 10px;
@@ -638,6 +641,9 @@ td {
 .D3TableContainer-tableRow--expanded .Item-title {
   font-family: 'Lora', Georgia, serif;
   font-weight: 900;
+  display: inline-block;
+  margin-bottom: 5px;
+  max-width: 90%;
 }
 .D3TableContainer-tableRow--expanded .Item-titleLabel {
   display: inline;
